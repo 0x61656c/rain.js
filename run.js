@@ -11,6 +11,7 @@ document.body.appendChild(canvas);
 var ctx = canvas.getContext("2d");
 var x_size = 10;
 var y_size = 10;
+var particleArray = [];
 
 class Particle {
 
@@ -28,18 +29,36 @@ class Particle {
 }
 
 let p1 = new Particle(10,10);
-p1.drawParticle();
+let p2 = new Particle(100,20);
+//p1.drawParticle();
+
+function refreshCanvas(particle){
+  setInterval(function(){
+  ctx.clearRect(particle.x, particle.y - 1, x_size, y_size);
+  particle.fall();
+  particle.drawParticle();},5);
+  console.log(particle.y)
+}
+
+particleArray.push(p1);
+//particleArray.push(p2);
+
+function main(){
+
+  for(i = 0; i < particleArray.length; i++){
+    refreshCanvas(particleArray[i])
+    }
+  }
+
+main();
 
 
-/*
-while(){
-	var particle_array = []
+
+  
+
 
 	//every second,
 	//generate particle at random x value
 	//add particle to array
 	//check that each particle has a value above minimum threshold
 	//remove the ones that are below from the array
-
-}
-*/
