@@ -12,29 +12,36 @@ var ctx = canvas.getContext("2d");
 var x_size = 10;
 var y_size = 10;
 
-class Particle {
+class particle {
 
   constructor(x,y) {
     this.x = x;
     this.y = y;
+    this.a = a;
+    this.b = b;
   }
 
   fall(){
   	this.y  = this.y + 1;
   }
-  drawParticle(){
-    ctx.fillRect(this.x,this.y,x_size,y_size);
-  }
 }
 
-let p1 = new Particle(10,10);
-p1.drawParticle();
+let user = new User("John");
+user.sayHi();
+function grow(input){
+	var output;
+	if (input == 99) {
+		output = 0;
+	}
+	else {
+		output = input + 1;
+	}
+	return (output);
+}
 
 
-/*
 while(){
 	var particle_array = []
-
 	//every second,
 	//generate particle at random x value
 	//add particle to array
@@ -42,4 +49,3 @@ while(){
 	//remove the ones that are below from the array
 
 }
-*/
